@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Bill/CLionProjects/Raylib Game/main.c
+stdlib.h
+-
+stdio.h
+-
+raylib.h
+-
+
+C:/dev/vcpkg/installed/x64-windows/include/raylib.h
+stdarg.h
+-
+stdbool.h
+-
+
