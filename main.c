@@ -1,12 +1,12 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include <raylib.h>
+#include <math.h>
 
 //region Declarations
 
-#define MAX(a, b) (a > b ? a : b)
-#define MIN(a, b) (a < b ? a : b)
-#define CLAMP(a, b, c) (MIN(MAX(a, b), c))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define CLAMP(a, b, c) (MIN(MAX((a), (b)), (c)))
 
 #define RESULT          int
 #define RETURN_SUCCESS  0
@@ -18,7 +18,9 @@ enum Scenes {
     SCENE_SplashScreen,
     SCENE_MainMenu,
     SCENE_Credits,
-    SCENE_Game,
+    SCENE_WorldPainter,
+    SCENE_MapViewer,
+    SCENE_NewWorldMenu,
 };
 
 RESULT Initialise();
@@ -63,21 +65,51 @@ typedef struct {
 } SCENE_MAIN_MENU_Data;
 
 SCENE_METHOD SCENE_CREDITS_Start();
+
 SCENE_METHOD SCENE_CREDITS_Update();
+
 SCENE_METHOD SCENE_CREDITS_Render();
+
 SCENE_METHOD SCENE_CREDITS_Close();
 
-SCENE_METHOD SCENE_GAME_Start();
-SCENE_METHOD SCENE_GAME_Update();
-SCENE_METHOD SCENE_GAME_Render();
-SCENE_METHOD SCENE_GAME_Close();
+SCENE_METHOD SCENE_WorldPainter_Start();
+
+SCENE_METHOD SCENE_WorldPainter_Update();
+
+SCENE_METHOD SCENE_WorldPainter_Render();
+
+SCENE_METHOD SCENE_WorldPainter_Close();
+
 typedef struct {
-    int* map;
+    int *map;
     int width;
     int height;
-
+    int textureScale;
     Camera2D camera;
-} SCENE_GAME_Data;
+    Vector2 previousTile;
+} SCENE_WorldPainter_Data;
+
+SCENE_METHOD SCENE_MAP_VIEWER_Start();
+
+SCENE_METHOD SCENE_MAP_VIEWER_Update();
+
+SCENE_METHOD SCENE_MAP_VIEWER_Render();
+
+SCENE_METHOD SCENE_MAP_VIEWER_Close();
+
+typedef struct {
+    Texture texture;
+    Camera2D camera;
+} SCENE_MAP_VIEWER_Data;
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_START();
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE();
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER();
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_CLOSE();
+
 //endregion
 
 
@@ -124,11 +156,23 @@ RESULT ChangeScene(SCENE scene) {
             RENDER_SCENE = SCENE_CREDITS_Render;
             CLOSE_SCENE = SCENE_CREDITS_Close;
             break;
-        case SCENE_Game:
-            START_SCENE = SCENE_GAME_Start;
-            UPDATE_SCENE = SCENE_GAME_Update;
-            RENDER_SCENE = SCENE_GAME_Render;
-            CLOSE_SCENE = SCENE_GAME_Close;
+        case SCENE_WorldPainter:
+            START_SCENE = SCENE_WorldPainter_Start;
+            UPDATE_SCENE = SCENE_WorldPainter_Update;
+            RENDER_SCENE = SCENE_WorldPainter_Render;
+            CLOSE_SCENE = SCENE_WorldPainter_Close;
+            break;
+        case SCENE_MapViewer:
+            START_SCENE = SCENE_MAP_VIEWER_Start;
+            UPDATE_SCENE = SCENE_MAP_VIEWER_Update;
+            RENDER_SCENE = SCENE_MAP_VIEWER_Render;
+            CLOSE_SCENE = SCENE_MAP_VIEWER_Close;
+            break;
+        case SCENE_NewWorldMenu:
+            START_SCENE = SCENE_NEW_WORLD_MENU_START;
+            UPDATE_SCENE = SCENE_NEW_WORLD_MENU_UPDATE;
+            RENDER_SCENE = SCENE_NEW_WORLD_MENU_RENDER;
+            CLOSE_SCENE = SCENE_NEW_WORLD_MENU_CLOSE;
             break;
         default:
             return RETURN_ERROR;
@@ -147,7 +191,7 @@ RESULT Initialise() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1200, 800, "");
     SetTargetFPS(60);
-    SetExitKey(NULL);
+    SetExitKey(0);
     return RETURN_SUCCESS;
 }
 
@@ -198,6 +242,8 @@ SCENE_METHOD SCENE_SPLASH_Start() {
 
     data->state = 0;
     data->alpha = 1.0f;
+
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_SPLASH_Update() {
@@ -249,6 +295,8 @@ SCENE_METHOD SCENE_SPLASH_Update() {
             ChangeScene(SCENE_MainMenu);
         }
     }
+
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_SPLASH_Render() {
@@ -285,12 +333,14 @@ SCENE_METHOD SCENE_SPLASH_Render() {
                  50, Fade(BLACK, data->alpha));
     } else if (data->state == 4) {
         ClearBackground(BLACK);
-        DrawText("A game by Bill Crooks", 0, GetScreenHeight() - 32, 32, RAYWHITE);
+        DrawText("A WORLD_PAINTER by Bill Crooks", 0, GetScreenHeight() - 32, 32, RAYWHITE);
     }
+
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_SPLASH_Close() {
-
+    return RETURN_SUCCESS;
 }
 
 //endregion
@@ -298,12 +348,14 @@ SCENE_METHOD SCENE_SPLASH_Close() {
 //region Main Menu
 
 SCENE_METHOD SCENE_MAIN_MENU_Start() {
-    SCENE_MAIN_MENU_Data* data = (SCENE_MAIN_MENU_Data *)malloc(sizeof(SCENE_MAIN_MENU_Data));
+    SCENE_MAIN_MENU_Data *data = (SCENE_MAIN_MENU_Data *) malloc(sizeof(SCENE_MAIN_MENU_Data));
     SceneData = data;
     data->cursorHighlight = 0;
     data->alpha = 0.0f;
     data->mouseMoved = false;
     data->mousePreviousPosition = GetMousePosition();
+
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_MAIN_MENU_Update() {
@@ -314,8 +366,9 @@ SCENE_METHOD SCENE_MAIN_MENU_Update() {
 
     data->mouseMoved = GetMousePosition().x != data->mousePreviousPosition.x ||
             GetMousePosition().y != data->mousePreviousPosition.y;
-    if (data->mouseMoved && GetScreenHeight() - GetMouseY() < 4 * 64 && (float)GetMouseX() / GetScreenWidth() > 0.75f) {
-        data->cursorHighlight = 3 - (int)((GetScreenHeight() - GetMouseY()) / 64);
+    if (data->mouseMoved && GetScreenHeight() - GetMouseY() < 4 * 64 &&
+        (float) GetMouseX() / (float) GetScreenWidth() > 0.75f) {
+        data->cursorHighlight = 3 - (int) ((GetScreenHeight() - GetMouseY()) / 64);
     }
 
     if (IsKeyPressed(KEY_DOWN)) {
@@ -339,7 +392,7 @@ SCENE_METHOD SCENE_MAIN_MENU_Update() {
     if (IsKeyPressed(KEY_ENTER) || IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         switch (data->cursorHighlight) {
             case 0:         // Play
-                ChangeScene(SCENE_Game);
+                ChangeScene(SCENE_NewWorldMenu);
                 break;
             case 1:         // Options
                 break;
@@ -353,6 +406,7 @@ SCENE_METHOD SCENE_MAIN_MENU_Update() {
     }
 
     data->mousePreviousPosition = GetMousePosition();
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_MAIN_MENU_Render() {
@@ -388,10 +442,11 @@ SCENE_METHOD SCENE_MAIN_MENU_Render() {
     }
 
     DrawText("v0.1a", 0, GetScreenHeight() - 32, 32, (Color){50, 50, 50, 255});
+    return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_MAIN_MENU_Close() {
-
+    return RETURN_SUCCESS;
 }
 
 //endregion
@@ -436,13 +491,14 @@ SCENE_METHOD SCENE_CREDITS_Close() {
 
 //endregion
 
-//region Game
+//region World Painter
 
-SCENE_METHOD SCENE_GAME_Start() {
-    SCENE_GAME_Data* data = malloc(sizeof(SCENE_GAME_Data));
+SCENE_METHOD SCENE_WorldPainter_Start() {
+    SCENE_WorldPainter_Data *data = malloc(sizeof(SCENE_WorldPainter_Data));
     SceneData = data;
-    data->width     = 32;
-    data->height    = 32;
+    data->width = 32;
+    data->height = 32;
+    data->textureScale = 8;
     data->map = malloc(sizeof(int) * data->width * data->height);
 
     for (int y = 0; y < data->height; y++) {
@@ -451,20 +507,21 @@ SCENE_METHOD SCENE_GAME_Start() {
         }
     }
 
-    data->camera = (Camera2D){0};
+    data->camera = (Camera2D) {0};
     data->camera.zoom = 1;
-    data->camera.target = (Vector2){0, 0};
+    data->camera.target = (Vector2) {0, 0};
+    return RETURN_SUCCESS;
 }
 
-SCENE_METHOD SCENE_GAME_Update() {
-    SCENE_GAME_Data* data = SceneData;
+SCENE_METHOD SCENE_WorldPainter_Update() {
+    SCENE_WorldPainter_Data *data = SceneData;
 
     if (IsKeyDown(KEY_ESCAPE)) {
         ChangeScene(SCENE_MainMenu);
     }
 
-    data->camera.offset.x = GetScreenWidth() / 2;
-    data->camera.offset.y = GetScreenHeight() / 2;
+    data->camera.offset.x = (float) GetScreenWidth() / 2;
+    data->camera.offset.y = (float) GetScreenHeight() / 2;
 
     if (IsKeyDown(KEY_LEFT) || GetMouseX() < 20) {
         data->camera.target.x -= 5 * (6 - data->camera.zoom);
@@ -480,35 +537,98 @@ SCENE_METHOD SCENE_GAME_Update() {
     }
 
     if (GetMouseWheelMove() > 0) {
-        data->camera.zoom += 0.05;
+        data->camera.zoom += 0.05f;
     }
     if (GetMouseWheelMove() < 0) {
-        data->camera.zoom -= 0.05;
+        data->camera.zoom -= 0.05f;
     }
     data->camera.zoom = CLAMP(data->camera.zoom, 0.1, 4.95);
 
-    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
         int y;
         y = (int) (GetMouseY());
         int x;
         x = (int) (GetMouseX());
 
-        int cameraPositionX = (int)(data->camera.target.x);
-        int cameraPositionY = (int)(data->camera.target.y);
+        int cameraPositionX = (int) (data->camera.target.x);
+        int cameraPositionY = (int) (data->camera.target.y);
 
         int tileX;
-        tileX = ((x - data->camera.offset.x) / data->camera.zoom + cameraPositionX) / 32;
+        tileX = (int) (((float) x - data->camera.offset.x) / data->camera.zoom + (float) cameraPositionX) / 32;
         int tileY;
-        tileY = ((y - data->camera.offset.y) / data->camera.zoom + cameraPositionY) / 32;
+        tileY = (int) (((float) y - data->camera.offset.y) / data->camera.zoom + (float) cameraPositionY) / 32;
 
-        if (tileX >= 0 && tileX < data->width && tileY >= 0 && tileY < data->height) {
-            data->map[tileY * data->width + tileX] = !data->map[tileY * data->width + tileX];
+        if (tileX != (int) data->previousTile.x || tileY != (int) data->previousTile.y) {
+            if (tileX >= 0 && tileX < data->width && tileY >= 0 && tileY < data->height) {
+                data->map[tileY * data->width + tileX] = !data->map[tileY * data->width + tileX];
+            }
+            data->previousTile = (Vector2) {(float) tileX, (float) tileY};
         }
     }
+
+    if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
+        data->previousTile = (Vector2) {-1, -1};
+    }
+
+    if (IsKeyPressed(KEY_ENTER)) {
+        int width = data->width * data->textureScale;
+        int height = data->height * data->textureScale;
+        Vector2 *cellPositions = malloc(data->width * data->height * sizeof(Vector2));
+        Color *cellColours = malloc(data->width * data->height * sizeof(Color));
+        for (int y = 0; y < data->height; y++) {
+            for (int x = 0; x < data->width; x++) {
+                cellPositions[y * data->width + x] =
+                        (Vector2) {(float) (x * data->textureScale + rand() % data->textureScale),
+                                   (float) (y * data->textureScale + rand() % data->textureScale)};
+                //cellColours[y * data->width + x] = data->map[y * data->width + x] ? GREEN : BLUE;
+                cellColours[y * data->width + x] = data->map[y * data->width + x] ? GREEN : BLUE;
+            }
+        }
+
+        Color *pixels = malloc(width * height * sizeof(Color));
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int closestDistance = 999;
+                int cellIndex = 0;
+                for (int i = 0; i < data->width * data->height; i++) {
+                    //int distanceX = abs((x - cellPositions[i].x) * (x - cellPositions[i].x));
+                    //int distanceY = abs((y - cellPositions[i].y) * (y - cellPositions[i].y));
+
+                    int distanceX = abs(x - (int) cellPositions[i].x);
+                    int distanceY = abs(y - (int) cellPositions[i].y);
+
+                    int dist = distanceX + distanceY;
+                    if (closestDistance > dist) {
+                        closestDistance = dist;
+                        cellIndex = i;
+                    }
+                }
+
+                Color colour = cellColours[cellIndex];
+                pixels[y * width + x] = colour;
+            }
+        }
+
+
+        Image image = {
+                .data = pixels,
+                .width = width,
+                .height = height,
+                .format = UNCOMPRESSED_R8G8B8A8,
+                .mipmaps = 1
+        };
+
+        ExportImage(image, "out.png");
+        UnloadImage(image);
+
+        ChangeScene(SCENE_MapViewer);
+    }
+
+    return RETURN_SUCCESS;
 }
 
-SCENE_METHOD SCENE_GAME_Render() {
-    SCENE_GAME_Data* data = SceneData;
+SCENE_METHOD SCENE_WorldPainter_Render() {
+    SCENE_WorldPainter_Data *data = SceneData;
 
     BeginMode2D(data->camera);
 
@@ -521,11 +641,104 @@ SCENE_METHOD SCENE_GAME_Render() {
 
     EndMode2D();
 
-
+    return RETURN_SUCCESS;
 }
 
-SCENE_METHOD SCENE_GAME_Close() {
+SCENE_METHOD SCENE_WorldPainter_Close() {
+    SCENE_WorldPainter_Data *data = SceneData;
+    free(data->map);
+    return RETURN_SUCCESS;
+}
 
+//endregion
+
+//region View Map Scene
+
+SCENE_METHOD SCENE_MAP_VIEWER_Start() {
+    SCENE_MAP_VIEWER_Data *data = malloc(sizeof(SCENE_MAP_VIEWER_Data));
+    SceneData = data;
+
+    data->texture = LoadTexture("out.png");
+    data->camera = (Camera2D) {0};
+    data->camera.zoom = 1;
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_MAP_VIEWER_Update() {
+    SCENE_MAP_VIEWER_Data *data = SceneData;
+
+    if (IsKeyPressed(KEY_ESCAPE)) {
+        ChangeScene(SCENE_MainMenu);
+    }
+
+    data->camera.offset.x = (float) GetScreenWidth() / 2;
+    data->camera.offset.y = (float) GetScreenHeight() / 2;
+
+    if (IsKeyDown(KEY_LEFT)) {
+        data->camera.target.x -= 5 * (6 - data->camera.zoom);
+    }
+    if (IsKeyDown(KEY_RIGHT)) {
+        data->camera.target.x += 5 * (6 - data->camera.zoom);
+    }
+    if (IsKeyDown(KEY_UP)) {
+        data->camera.target.y -= 5 * (6 - data->camera.zoom);
+    }
+    if (IsKeyDown(KEY_DOWN)) {
+        data->camera.target.y += 5 * (6 - data->camera.zoom);
+    }
+
+    if (GetMouseWheelMove() > 0) {
+        data->camera.zoom += 0.05f;
+    }
+    if (GetMouseWheelMove() < 0) {
+        data->camera.zoom -= 0.05f;
+    }
+    data->camera.zoom = CLAMP(data->camera.zoom, 0.1, 4.95);
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_MAP_VIEWER_Render() {
+    SCENE_MAP_VIEWER_Data *data = SceneData;
+    BeginMode2D(data->camera);
+    DrawTexture(data->texture, 0, 0, WHITE);
+    EndMode2D();
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_MAP_VIEWER_Close() {
+    SCENE_MAP_VIEWER_Data *data = SceneData;
+    UnloadTexture(data->texture);
+    return RETURN_SUCCESS;
+}
+
+//endregion
+
+//region New World Menu
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_START() {
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
+    if (IsKeyPressed(KEY_ESCAPE)) {
+        Close();
+    }
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
+    DrawRectangleLinesEx((Rectangle) {16,
+                                      120,
+                                      (float) GetScreenWidth() - 32,
+                                      (float) GetScreenHeight() - (120 + 16)}, 2, WHITE);
+    DrawText("NEW GAME", 16, 32, 64, WHITE);
+    DrawText("World Painter", 32, 128, 32, WHITE);
+    DrawText("Procedural", 32, 128 + 32, 32, WHITE);
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_NEW_WORLD_MENU_CLOSE() {
+    return RETURN_SUCCESS;
 }
 
 //endregion

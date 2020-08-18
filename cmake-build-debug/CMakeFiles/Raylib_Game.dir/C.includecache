@@ -13,6 +13,8 @@ stdio.h
 -
 raylib.h
 -
+math.h
+-
 
 C:/dev/vcpkg/installed/x64-windows/include/raylib.h
 stdarg.h
