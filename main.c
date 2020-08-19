@@ -23,6 +23,7 @@ enum Scenes {
     SCENE_MapViewer,
     SCENE_NewWorldMenu,
     SCENE_WorldPainterMenu,
+    SCENE_ProceduralWorldMenu,
 };
 
 RESULT Initialise();
@@ -111,6 +112,15 @@ typedef struct {
     int size;
 } SCENE_WORLD_PAINTER_MENU_Data;
 
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_START();
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_UPDATE();
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_RENDER();
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_CLOSE();
+typedef struct {
+    int cursorHighlight;
+    int size;
+} SCENE_PROCEDURAL_WORLD_MENU_Data;
+
 //endregion
 
 //region Main
@@ -182,6 +192,12 @@ RESULT ChangeScene(SCENE scene) {
             RENDER_SCENE = SCENE_WORLD_PAINTER_MENU_RENDER;
             CLOSE_SCENE = SCENE_WORLD_PAINTER_MENU_CLOSE;
             break;
+        case SCENE_ProceduralWorldMenu:
+            START_SCENE = SCENE_PROCEDURAL_WORLD_MENU_START;
+            UPDATE_SCENE = SCENE_PROCEDURAL_WORLD_MENU_UPDATE;
+            RENDER_SCENE = SCENE_PROCEDURAL_WORLD_MENU_RENDER;
+            CLOSE_SCENE = SCENE_PROCEDURAL_WORLD_MENU_CLOSE;
+            break;
         default:
             return RETURN_ERROR;
     }
@@ -244,6 +260,51 @@ RESULT Close() {
     }
     CloseWindow();
     return RETURN_SUCCESS;
+}
+
+//endregion
+
+//region Utility Functions
+
+Color *GenerateVoronoiTexture(const int *map, int width, int height, int scale) {
+    Vector2 *cellPositions = malloc(width * height * sizeof(Vector2));
+    Color *cellColours = malloc(width * height * sizeof(Color));
+    int textureWidth = width * scale;
+    int textureHeight = height * scale;
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            cellPositions[y * width + x] =
+                    (Vector2) {(float) (x * scale + rand() % scale),
+                               (float) (y * scale + rand() % scale)};
+            //cellColours[y * data->width + x] = data->map[y * data->width + x] ? GREEN : BLUE;
+            cellColours[y * width + x] = map[y * width + x] ? GREEN : BLUE;
+        }
+    }
+
+    Color *pixels = malloc(textureWidth * textureHeight * sizeof(Color));
+    for (int y = 0; y < textureHeight; y++) {
+        for (int x = 0; x < textureWidth; x++) {
+            int closestDistance = 999;
+            int cellIndex = 0;
+            for (int i = 0; i < width * height; i++) {
+                //int distanceX = abs((x - cellPositions[i].x) * (x - cellPositions[i].x));
+                //int distanceY = abs((y - cellPositions[i].y) * (y - cellPositions[i].y));
+
+                int distanceX = abs(x - (int) cellPositions[i].x);
+                int distanceY = abs(y - (int) cellPositions[i].y);
+
+                int dist = distanceX + distanceY;
+                if (closestDistance > dist) {
+                    closestDistance = dist;
+                    cellIndex = i;
+                }
+            }
+
+            Color colour = cellColours[cellIndex];
+            pixels[y * textureWidth + x] = colour;
+        }
+    }
+    return pixels;
 }
 
 //endregion
@@ -594,56 +655,19 @@ SCENE_METHOD SCENE_WorldPainter_Update() {
     }
 
     if (IsKeyPressed(KEY_ENTER)) {
-        int width = data->width * data->textureScale;
-        int height = data->height * data->textureScale;
-        Vector2 *cellPositions = malloc(data->width * data->height * sizeof(Vector2));
-        Color *cellColours = malloc(data->width * data->height * sizeof(Color));
-        for (int y = 0; y < data->height; y++) {
-            for (int x = 0; x < data->width; x++) {
-                cellPositions[y * data->width + x] =
-                        (Vector2) {(float) (x * data->textureScale + rand() % data->textureScale),
-                                   (float) (y * data->textureScale + rand() % data->textureScale)};
-                //cellColours[y * data->width + x] = data->map[y * data->width + x] ? GREEN : BLUE;
-                cellColours[y * data->width + x] = data->map[y * data->width + x] ? GREEN : BLUE;
-            }
-        }
-
-        Color *pixels = malloc(width * height * sizeof(Color));
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                int closestDistance = 999;
-                int cellIndex = 0;
-                for (int i = 0; i < data->width * data->height; i++) {
-                    //int distanceX = abs((x - cellPositions[i].x) * (x - cellPositions[i].x));
-                    //int distanceY = abs((y - cellPositions[i].y) * (y - cellPositions[i].y));
-
-                    int distanceX = abs(x - (int) cellPositions[i].x);
-                    int distanceY = abs(y - (int) cellPositions[i].y);
-
-                    int dist = distanceX + distanceY;
-                    if (closestDistance > dist) {
-                        closestDistance = dist;
-                        cellIndex = i;
-                    }
-                }
-
-                Color colour = cellColours[cellIndex];
-                pixels[y * width + x] = colour;
-            }
-        }
-
+        Color* pixels = GenerateVoronoiTexture(data->map, data->width, data->height, data->textureScale);
 
         Image image = {
                 .data = pixels,
-                .width = width,
-                .height = height,
-                .format = UNCOMPRESSED_R8G8B8A8,
-                .mipmaps = 1
+                .width = data->width * data->textureScale,
+                .height = data->height * data->textureScale,
+                .mipmaps = 1,
+                .format = UNCOMPRESSED_R8G8B8A8
         };
 
         ExportImage(image, "out.png");
-        UnloadImage(image);
 
+        UnloadImage(image);
         ChangeScene(SCENE_MapViewer);
     }
 
@@ -758,7 +782,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
                 ChangeScene(SCENE_WorldPainterMenu);
                 break;
             case 1:
-                //TODO: Add procedural generation option
+                ChangeScene(SCENE_ProceduralWorldMenu);
                 break;
                 //TODO: Add load world option
         }
@@ -916,6 +940,89 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_RENDER() {
 }
 
 SCENE_METHOD SCENE_WORLD_PAINTER_MENU_CLOSE() {
+    return RETURN_SUCCESS;
+}
+
+//endregion
+
+//region Procedural World Menu
+
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_START() {
+    SceneData = malloc(sizeof(SCENE_PROCEDURAL_WORLD_MENU_Data));
+    SCENE_PROCEDURAL_WORLD_MENU_Data *data = SceneData;
+    data->cursorHighlight = 0;
+    data->size = 0;
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_UPDATE() {
+    SCENE_PROCEDURAL_WORLD_MENU_Data *data = SceneData;
+
+    if (IsKeyPressed(KEY_ESCAPE)) {
+        ChangeScene(SCENE_NewWorldMenu);
+    }
+
+    if (IsKeyPressed(KEY_ENTER)) {
+        switch (data->cursorHighlight) {
+            case 0:
+                data->size++;
+                if (data->size > 2) {
+                    data->size = 0;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (IsKeyPressed(KEY_DOWN)) {
+        data->cursorHighlight++;
+    } else if (IsKeyPressed(KEY_UP)) {
+        data->cursorHighlight--;
+    }
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 1);
+
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_RENDER() {
+    SCENE_PROCEDURAL_WORLD_MENU_Data *data = SceneData;
+    DrawRectangleLinesEx((Rectangle) {
+                                 16,
+                                 120,
+                                 (float) GetScreenWidth() - 32,
+                                 (float) GetScreenHeight() - (120 + 16)
+                         }, 2, WHITE
+    );
+    DrawText("PROCEDURAL WORLD", 16, 32, 64, WHITE);
+
+    for (int i = 0; i < 2; i++) {
+        Color textColour = data->cursorHighlight == i ? WHITE : (Color){50, 50, 50, 255};
+        switch (i) {
+            case 0:
+                const char* text;
+                switch (data->size) {
+                    case 0:
+                        text = "Size small";
+                        break;
+                    case 1:
+                        text = "Size medium";
+                        break;
+                    case 2:
+                        text = "Size large";
+                        break;
+                }
+                DrawText(text, 32, 128, 32, textColour);
+                break;
+            case 1:
+                DrawText("Generate", 32, 128 + i * 32, 32, textColour);
+                break;
+        }
+    }
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_CLOSE() {
     return RETURN_SUCCESS;
 }
 
