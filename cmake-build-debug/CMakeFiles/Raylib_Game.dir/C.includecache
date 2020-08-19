@@ -9,8 +9,6 @@
 C:/Users/Bill/CLionProjects/Raylib Game/main.c
 stdlib.h
 -
-stdio.h
--
 raylib.h
 -
 math.h

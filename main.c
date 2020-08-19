@@ -190,26 +190,32 @@ RESULT ChangeScene(SCENE scene) {
 RESULT Initialise() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1200, 800, "");
-    SetTargetFPS(60);
-    SetExitKey(0);
-    return RETURN_SUCCESS;
-}
+        SetTargetFPS(60);
+        SetExitKey(0);
+        return RETURN_SUCCESS;
+        }
 
-RESULT Update() {
-    if (UPDATE_SCENE) {
+        RESULT Update() {
+        if (UPDATE_SCENE) {
         (*UPDATE_SCENE)();
-    }
-    SetWindowTitle(TextFormat("%d FPS", GetFPS()));
-    return RETURN_SUCCESS;
-}
+        }
+        SetWindowTitle(TextFormat("%d FPS", GetFPS()));
+        if (IsKeyPressed(KEY_F)) {
+        SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_WINDOW_UNDECORATED);
+        CloseWindow();
+        InitWindow(GetMonitorWidth(0), GetMonitorWidth(0), "");
+        SetExitKey(0);
+        }
+        return RETURN_SUCCESS;
+        }
 
-RESULT Draw() {
-    BeginDrawing();
-    ClearBackground(BLACK);
-    if (RENDER_SCENE) {
+        RESULT Draw() {
+        BeginDrawing();
+        ClearBackground(BLACK);
+        if (RENDER_SCENE) {
         (*RENDER_SCENE)();
-    }
-    EndDrawing();
+        }
+        EndDrawing();
     return RETURN_SUCCESS;
 }
 
@@ -709,29 +715,36 @@ SCENE_METHOD SCENE_MAP_VIEWER_Close() {
     SCENE_MAP_VIEWER_Data *data = SceneData;
     UnloadTexture(data->texture);
     return RETURN_SUCCESS;
-}
+    }
 
 //endregion
 
 //region New World Menu
 
-SCENE_METHOD SCENE_NEW_WORLD_MENU_START() {
+    SCENE_METHOD SCENE_NEW_WORLD_MENU_START() {
+    SceneData = malloc(sizeof(int));
     return RETURN_SUCCESS;
+    }
+
+    SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
+    if (IsKeyPressed(KEY_ESCAPE)) {
+    ChangeScene(SCENE_MainMenu);
 }
 
-SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
-    if (IsKeyPressed(KEY_ESCAPE)) {
-        Close();
-    }
-    return RETURN_SUCCESS;
+if (IsKeyPressed(KEY_ENTER)) {
+ChangeScene(SCENE_WorldPainter);
+}
+return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
-    DrawRectangleLinesEx((Rectangle) {16,
-                                      120,
-                                      (float) GetScreenWidth() - 32,
-                                      (float) GetScreenHeight() - (120 + 16)}, 2, WHITE);
-    DrawText("NEW GAME", 16, 32, 64, WHITE);
+DrawRectangleLinesEx((Rectangle) {
+16,
+120,
+(float) GetScreenWidth() - 32,
+(float) GetScreenHeight() - (120 + 16)
+}, 2, WHITE);
+DrawText("NEW GAME", 16, 32, 64, WHITE);
     DrawText("World Painter", 32, 128, 32, WHITE);
     DrawText("Procedural", 32, 128 + 32, 32, WHITE);
     return RETURN_SUCCESS;
