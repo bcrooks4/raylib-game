@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <raylib.h>
 #include <math.h>
+#include <stdio.h>
 
 //region Declarations
 
@@ -21,6 +22,7 @@ enum Scenes {
     SCENE_WorldPainter,
     SCENE_MapViewer,
     SCENE_NewWorldMenu,
+    SCENE_WorldPainterMenu,
 };
 
 RESULT Initialise();
@@ -66,21 +68,14 @@ typedef struct {
 } SCENE_MAIN_MENU_Data;
 
 SCENE_METHOD SCENE_CREDITS_Start();
-
 SCENE_METHOD SCENE_CREDITS_Update();
-
 SCENE_METHOD SCENE_CREDITS_Render();
-
 SCENE_METHOD SCENE_CREDITS_Close();
 
 SCENE_METHOD SCENE_WorldPainter_Start();
-
 SCENE_METHOD SCENE_WorldPainter_Update();
-
 SCENE_METHOD SCENE_WorldPainter_Render();
-
 SCENE_METHOD SCENE_WorldPainter_Close();
-
 typedef struct {
     int *map;
     int width;
@@ -88,32 +83,33 @@ typedef struct {
     int textureScale;
     Camera2D camera;
     Vector2 previousTile;
-} SCENE_WorldPainter_Data;
+} SCENE_WORLD_PAINTER_Data;
 
 SCENE_METHOD SCENE_MAP_VIEWER_Start();
-
 SCENE_METHOD SCENE_MAP_VIEWER_Update();
-
 SCENE_METHOD SCENE_MAP_VIEWER_Render();
-
 SCENE_METHOD SCENE_MAP_VIEWER_Close();
-
 typedef struct {
     Texture texture;
     Camera2D camera;
 } SCENE_MAP_VIEWER_Data;
 
 SCENE_METHOD SCENE_NEW_WORLD_MENU_START();
-
 SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE();
-
 SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER();
-
 SCENE_METHOD SCENE_NEW_WORLD_MENU_CLOSE();
-
 typedef struct {
     int cursorHighlight;
 } SCENE_NEW_WORLD_MENU_Data;
+
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_START();
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE();
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_RENDER();
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_CLOSE();
+typedef struct {
+    int cursorHighlight;
+    int size;
+} SCENE_WORLD_PAINTER_MENU_Data;
 
 //endregion
 
@@ -180,6 +176,12 @@ RESULT ChangeScene(SCENE scene) {
             RENDER_SCENE = SCENE_NEW_WORLD_MENU_RENDER;
             CLOSE_SCENE = SCENE_NEW_WORLD_MENU_CLOSE;
             break;
+        case SCENE_WorldPainterMenu:
+            START_SCENE = SCENE_WORLD_PAINTER_MENU_START;
+            UPDATE_SCENE = SCENE_WORLD_PAINTER_MENU_UPDATE;
+            RENDER_SCENE = SCENE_WORLD_PAINTER_MENU_RENDER;
+            CLOSE_SCENE = SCENE_WORLD_PAINTER_MENU_CLOSE;
+            break;
         default:
             return RETURN_ERROR;
     }
@@ -192,6 +194,9 @@ RESULT ChangeScene(SCENE scene) {
 
     if (START_SCENE) {
         (*START_SCENE)();
+    }
+    else {
+
     }
     return RETURN_SUCCESS;
 }
@@ -517,7 +522,7 @@ SCENE_METHOD SCENE_CREDITS_Close() {
 //region World Painter
 
 SCENE_METHOD SCENE_WorldPainter_Start() {
-    SCENE_WorldPainter_Data *data = SceneData;
+    SCENE_WORLD_PAINTER_Data *data = SceneData;
 
     for (int y = 0; y < data->height; y++) {
         for (int x = 0; x < data->width; x++) {
@@ -532,10 +537,10 @@ SCENE_METHOD SCENE_WorldPainter_Start() {
 }
 
 SCENE_METHOD SCENE_WorldPainter_Update() {
-    SCENE_WorldPainter_Data *data = SceneData;
+    SCENE_WORLD_PAINTER_Data *data = SceneData;
 
     if (IsKeyDown(KEY_ESCAPE)) {
-        ChangeScene(SCENE_MainMenu);
+        ChangeScene(SCENE_WorldPainterMenu);
     }
 
     data->camera.offset.x = (float) GetScreenWidth() / 2;
@@ -646,7 +651,7 @@ SCENE_METHOD SCENE_WorldPainter_Update() {
 }
 
 SCENE_METHOD SCENE_WorldPainter_Render() {
-    SCENE_WorldPainter_Data *data = SceneData;
+    SCENE_WORLD_PAINTER_Data *data = SceneData;
 
     BeginMode2D(data->camera);
 
@@ -663,7 +668,7 @@ SCENE_METHOD SCENE_WorldPainter_Render() {
 }
 
 SCENE_METHOD SCENE_WorldPainter_Close() {
-    SCENE_WorldPainter_Data *data = SceneData;
+    SCENE_WORLD_PAINTER_Data *data = SceneData;
     free(data->map);
     return RETURN_SUCCESS;
 }
@@ -750,18 +755,8 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
     if (IsKeyPressed(KEY_ENTER)) {
         switch (data->cursorHighlight) {
             case 0:
-                free(data);
-
-                SCENE_WorldPainter_Data *cData = malloc(sizeof(SCENE_WorldPainter_Data));
-                SceneData = cData;
-                cData->width = 32;
-                cData->height = 32;
-                cData->textureScale = 8;
-                cData->map = malloc(sizeof(int) * cData->width * cData->height);
-
-                contextData = true;
-                ChangeScene(SCENE_WorldPainter);
-                return RETURN_SUCCESS;
+                ChangeScene(SCENE_WorldPainterMenu);
+                break;
             case 1:
                 //TODO: Add procedural generation option
                 break;
@@ -788,7 +783,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
                                  (float) GetScreenHeight() - (120 + 16)
                          }, 2, WHITE
     );
-    DrawText("NEW GAME", 16, 32, 64, WHITE);
+    DrawText("NEW WORLD", 16, 32, 64, WHITE);
 
     for (int i = 0; i < 2; i++) {
         Color textColour = data->cursorHighlight == i ? WHITE : (Color) {50, 50, 50, 255};
@@ -810,4 +805,118 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_CLOSE() {
 
 //endregion
 
-//region
+//region World Painter Menu
+
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_START() {
+    SceneData = malloc(sizeof(SCENE_WORLD_PAINTER_MENU_Data));
+    SCENE_WORLD_PAINTER_MENU_Data *data = SceneData;
+    data->cursorHighlight = 0;
+    data->size = 1;
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE() {
+    SCENE_WORLD_PAINTER_MENU_Data *data = SceneData;
+
+    if (IsKeyPressed(KEY_ESCAPE)) {
+        ChangeScene(SCENE_NewWorldMenu);
+    }
+
+    if (IsKeyPressed(KEY_ENTER)) {
+        switch (data->cursorHighlight) {
+            case 0:
+                data->size++;
+                if (data->size > 2) {
+                    data->size = 0;
+                }
+                break;
+            //TODO: Add load world option
+            case 1:
+                int size = data->size;
+                free(data);
+
+                SCENE_WORLD_PAINTER_Data *cData = malloc(sizeof(SCENE_WORLD_PAINTER_Data));
+                SceneData = cData;
+
+                switch (size) {
+                    case 0:
+                        cData->width = 8;
+                        cData->height = 8;
+                        break;
+                    case 1:
+                        cData->width = 16;
+                        cData->height = 16;
+                        break;
+                    case 2:
+                        cData->width = 32;
+                        cData->height = 32;
+                        break;
+                    default:
+                        cData->width = 16;
+                        cData->height = 16;
+                        break;
+                }
+
+                cData->textureScale = 8;
+                cData->map = malloc(sizeof(int) * cData->width * cData->height);
+
+                contextData = true;
+                ChangeScene(SCENE_WorldPainter);
+                return RETURN_SUCCESS;
+            default:
+                break;
+        }
+    }
+
+    if (IsKeyPressed(KEY_DOWN)) {
+        data->cursorHighlight++;
+    } else if (IsKeyPressed(KEY_UP)) {
+        data->cursorHighlight--;
+    }
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 1);
+
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_RENDER() {
+    SCENE_WORLD_PAINTER_MENU_Data *data = SceneData;
+    DrawRectangleLinesEx((Rectangle) {
+                                 16,
+                                 120,
+                                 (float) GetScreenWidth() - 32,
+                                 (float) GetScreenHeight() - (120 + 16)
+                         }, 2, WHITE
+    );
+    DrawText("WORLD PAINTER", 16, 32, 64, WHITE);
+
+    for (int i = 0; i < 2; i++) {
+        Color textColour = data->cursorHighlight == i ? WHITE : (Color) {50, 50, 50, 255};
+        switch (i) {
+            case 0:
+                const char* text;
+                switch (data->size) {
+                    case 0:
+                        text = "Size small";
+                        break;
+                    case 1:
+                        text = "Size medium";
+                        break;
+                    case 2:
+                        text = "Size large";
+                        break;
+                }
+                DrawText(text, 32, 128, 32, textColour);
+                break;
+            case 1:
+                DrawText("Finish", 32, 128 + 32, 32, textColour);
+                break;
+        }
+    }
+    return RETURN_SUCCESS;
+}
+
+SCENE_METHOD SCENE_WORLD_PAINTER_MENU_CLOSE() {
+    return RETURN_SUCCESS;
+}
+
+//endregion
