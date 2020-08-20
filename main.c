@@ -110,6 +110,7 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_CLOSE();
 typedef struct {
     int cursorHighlight;
     int size;
+    int scale;
 } SCENE_WORLD_PAINTER_MENU_Data;
 
 SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_START();
@@ -119,6 +120,7 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_CLOSE();
 typedef struct {
     int cursorHighlight;
     int size;
+    int scale;
 } SCENE_PROCEDURAL_WORLD_MENU_Data;
 
 //endregion
@@ -287,11 +289,10 @@ Color *GenerateVoronoiTexture(const int *map, int width, int height, int scale) 
             int closestDistance = 999;
             int cellIndex = 0;
             for (int i = 0; i < width * height; i++) {
-                //int distanceX = abs((x - cellPositions[i].x) * (x - cellPositions[i].x));
-                //int distanceY = abs((y - cellPositions[i].y) * (y - cellPositions[i].y));
-
-                int distanceX = abs(x - (int) cellPositions[i].x);
-                int distanceY = abs(y - (int) cellPositions[i].y);
+                int distanceX = //abs((x - cellPositions[i].x) * (x - cellPositions[i].x))
+                abs(x - (int) cellPositions[i].x);
+                int distanceY = //abs((y - cellPositions[i].y) * (y - cellPositions[i].y))
+                abs(y - (int) cellPositions[i].y);
 
                 int dist = distanceX + distanceY;
                 if (closestDistance > dist) {
@@ -836,6 +837,7 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_START() {
     SCENE_WORLD_PAINTER_MENU_Data *data = SceneData;
     data->cursorHighlight = 0;
     data->size = 1;
+    data->scale = 1;
     return RETURN_SUCCESS;
 }
 
@@ -854,9 +856,15 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE() {
                     data->size = 0;
                 }
                 break;
-            //TODO: Add load world option
             case 1:
+                data->scale++;
+                if (data->scale > 2) {
+                    data->scale = 0;
+                }
+                break;
+            default:
                 int size = data->size;
+                int scale = data->scale;
                 free(data);
 
                 SCENE_WORLD_PAINTER_Data *cData = malloc(sizeof(SCENE_WORLD_PAINTER_Data));
@@ -881,14 +889,26 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE() {
                         break;
                 }
 
-                cData->textureScale = 8;
+                switch (scale) {
+                    case 0:
+                        cData->textureScale = 4;
+                        break;
+                    case 1:
+                        cData->textureScale = 8;
+                        break;
+                    case 2:
+                        cData->textureScale = 16;
+                        break;
+                    default:
+                        cData->textureScale = 8;
+                        break;
+                }
+
                 cData->map = malloc(sizeof(int) * cData->width * cData->height);
 
                 contextData = true;
                 ChangeScene(SCENE_WorldPainter);
                 return RETURN_SUCCESS;
-            default:
-                break;
         }
     }
 
@@ -897,7 +917,7 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE() {
     } else if (IsKeyPressed(KEY_UP)) {
         data->cursorHighlight--;
     }
-    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 1);
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 2);
 
     return RETURN_SUCCESS;
 }
@@ -913,26 +933,45 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_RENDER() {
     );
     DrawText("WORLD PAINTER", 16, 32, 64, WHITE);
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         Color textColour = data->cursorHighlight == i ? WHITE : (Color) {50, 50, 50, 255};
         switch (i) {
             case 0:
-                const char* text;
-                switch (data->size) {
-                    case 0:
-                        text = "Size small";
-                        break;
-                    case 1:
-                        text = "Size medium";
-                        break;
-                    case 2:
-                        text = "Size large";
-                        break;
+                if (1) {
+                    const char *text;
+                    switch (data->size) {
+                        case 0:
+                            text = "Size small";
+                            break;
+                        case 1:
+                            text = "Size medium";
+                            break;
+                        case 2:
+                            text = "Size large";
+                            break;
+                    }
+                    DrawText(text, 32, 128 + i * 32, 32, textColour);
                 }
-                DrawText(text, 32, 128, 32, textColour);
                 break;
             case 1:
-                DrawText("Finish", 32, 128 + 32, 32, textColour);
+                if (1) {
+                    const char *text;
+                    switch (data->scale) {
+                        case 0:
+                            text = "Scale small";
+                            break;
+                        case 1:
+                            text = "Scale medium";
+                            break;
+                        case 2:
+                            text = "Scale large";
+                            break;
+                    }
+                    DrawText(text, 32, 128 + i * 32, 32, textColour);
+                }
+                break;
+            case 2:
+                DrawText("Finish", 32, 128 + i * 32, 32, textColour);
                 break;
         }
     }
@@ -951,7 +990,8 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_START() {
     SceneData = malloc(sizeof(SCENE_PROCEDURAL_WORLD_MENU_Data));
     SCENE_PROCEDURAL_WORLD_MENU_Data *data = SceneData;
     data->cursorHighlight = 0;
-    data->size = 0;
+    data->size = 1;
+    data->scale = 1;
     return RETURN_SUCCESS;
 }
 
@@ -970,7 +1010,76 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_UPDATE() {
                     data->size = 0;
                 }
                 break;
+            case 1:
+                data->scale++;
+                if (data->scale > 2) {
+                    data->scale = 0;
+                }
+                break;
             default:
+                int width;
+                int height;
+                int scale;
+
+                switch (data->size) {
+                    case 0:
+                        width = 8;
+                        height = 8;
+                        break;
+                    case 1:
+                        width = 16;
+                        height = 16;
+                        break;
+                    case 2:
+                        width = 32;
+                        height = 32;
+                        break;
+                    default:
+                        width = 16;
+                        height = 16;
+                        break;
+                }
+
+                switch (data->scale) {
+                    case 0:
+                        scale = 4;
+                        break;
+                    case 1:
+                        scale = 4;
+                        break;
+                    case 2:
+                        scale = 8;
+                        break;
+                    default:
+                        scale = 16;
+                        break;
+                }
+
+                int* map = malloc(width * height * sizeof(int));
+                for (int y = 0; y < height; y++) {
+                    for (int x = 0; x < width; x++) {
+                        if (x <= 1 || y <= 1 || x >= width - 2 || y >= height - 2) {
+                            map[y * width + x] = 0;
+                        }
+                        else {
+                            map[y * width + x] = rand() % 2;
+                        }
+                    }
+                }
+
+                Color* pixels = GenerateVoronoiTexture(map, width, height, scale);
+                Image image = (Image) {
+                    .data = pixels,
+                    .width = width * scale,
+                    .height = height * scale,
+                    .mipmaps = 1,
+                    .format = UNCOMPRESSED_R8G8B8A8,
+                };
+
+                ExportImage(image, "out.png");
+
+                ChangeScene(SCENE_MapViewer);
+
                 break;
         }
     }
@@ -980,7 +1089,7 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_UPDATE() {
     } else if (IsKeyPressed(KEY_UP)) {
         data->cursorHighlight--;
     }
-    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 1);
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 2);
 
     return RETURN_SUCCESS;
 }
@@ -996,25 +1105,44 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_RENDER() {
     );
     DrawText("PROCEDURAL WORLD", 16, 32, 64, WHITE);
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         Color textColour = data->cursorHighlight == i ? WHITE : (Color){50, 50, 50, 255};
         switch (i) {
             case 0:
-                const char* text;
-                switch (data->size) {
-                    case 0:
-                        text = "Size small";
-                        break;
-                    case 1:
-                        text = "Size medium";
-                        break;
-                    case 2:
-                        text = "Size large";
-                        break;
+                if (1) {
+                    const char *text;
+                    switch (data->size) {
+                        case 0:
+                            text = "Size small";
+                            break;
+                        case 1:
+                            text = "Size medium";
+                            break;
+                        case 2:
+                            text = "Size large";
+                            break;
+                    }
+                    DrawText(text, 32, 128 + i * 32, 32, textColour);
                 }
-                DrawText(text, 32, 128, 32, textColour);
                 break;
             case 1:
+                if (1) {
+                    const char *text;
+                    switch (data->scale) {
+                        case 0:
+                            text = "Scale small";
+                            break;
+                        case 1:
+                            text = "Scale medium";
+                            break;
+                        case 2:
+                            text = "Scale large";
+                            break;
+                    }
+                    DrawText(text, 32, 128 + i * 32, 32, textColour);
+                }
+                break;
+            case 2:
                 DrawText("Generate", 32, 128 + i * 32, 32, textColour);
                 break;
         }
