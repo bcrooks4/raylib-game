@@ -62,6 +62,12 @@ RESULT ChangeScene(SCENE scene) {
             RENDER_SCENE = SCENE_PROCEDURAL_WORLD_MENU_RENDER;
             CLOSE_SCENE = SCENE_PROCEDURAL_WORLD_MENU_CLOSE;
             break;
+        case SCENE_BattleMap:
+            START_SCENE = SCENE_BATTLE_MAP_Start;
+            UPDATE_SCENE = SCENE_BATTLE_MAP_Update;
+            RENDER_SCENE = SCENE_BATTLE_MAP_Render;
+            CLOSE_SCENE = SCENE_BATTLE_MAP_Close;
+            break;
         default:
             return RETURN_ERROR;
     }

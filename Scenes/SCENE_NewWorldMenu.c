@@ -27,7 +27,9 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
             case 1:
                 ChangeScene(SCENE_ProceduralWorldMenu);
                 break;
-                //TODO: Add load world option
+            case 2:
+                ChangeScene(SCENE_BattleMap);
+                break;
         }
     }
 
@@ -36,7 +38,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
     } else if (IsKeyPressed(KEY_UP)) {
         data->cursorHighlight--;
     }
-    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 1);
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 2);
 
     return RETURN_SUCCESS;
 }
@@ -52,14 +54,17 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
     );
     DrawText("NEW WORLD", 16, 32, 64, WHITE);
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         Color textColour = data->cursorHighlight == i ? WHITE : (Color) {50, 50, 50, 255};
         switch (i) {
             case 0:
                 DrawText("World Painter", 32, 128, 32, textColour);
                 break;
             case 1:
-                DrawText("Procedural", 32, 128 + 32, 32, textColour);
+                DrawText("Procedural", 32, 128 + i * 32, 32, textColour);
+                break;
+            case 2:
+                DrawText("Battle Map", 32, 128 + i * 32, 32, textColour);
                 break;
         }
     }

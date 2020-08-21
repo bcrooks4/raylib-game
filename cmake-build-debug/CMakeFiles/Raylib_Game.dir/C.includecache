@@ -37,6 +37,16 @@ C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 ../Scenes/SCENE_ProceduralWorldMenu.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.h
+../Scenes/SCENE_BattleMap.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.c
+SCENE_BattleMap.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
+../Engine/Engine.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.h
 ../Engine/Engine.h
@@ -45,10 +55,6 @@ C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
-
-C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.c
-SCENE_MapViewer.h
-C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h
 ../Engine/Engine.h

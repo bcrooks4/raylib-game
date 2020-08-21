@@ -14,6 +14,7 @@
 #include "../Scenes/SCENE_NewWorldMenu.h"
 #include "../Scenes/SCENE_WorldPainterMenu.h"
 #include "../Scenes/SCENE_ProceduralWorldMenu.h"
+#include "../Scenes/SCENE_BattleMap.h"
 
 RESULT ChangeScene();
 
