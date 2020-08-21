@@ -86,6 +86,81 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Utility/Macro.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Utility/ProceduralGeneration.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Utility/ProceduralGeneration.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/main.c">
 			<Option target="Raylib_Game"/>
 		</Unit>

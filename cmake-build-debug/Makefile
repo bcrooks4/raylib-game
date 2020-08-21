@@ -127,6 +127,330 @@ Raylib_Game\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\build
 .PHONY : Raylib_Game\fast
 
+Engine\Engine.obj: Engine\Engine.c.obj
+
+.PHONY : Engine\Engine.obj
+
+# target to build an object file
+Engine\Engine.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj
+.PHONY : Engine\Engine.c.obj
+
+Engine\Engine.i: Engine\Engine.c.i
+
+.PHONY : Engine\Engine.i
+
+# target to preprocess a source file
+Engine\Engine.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\Engine.c.i
+.PHONY : Engine\Engine.c.i
+
+Engine\Engine.s: Engine\Engine.c.s
+
+.PHONY : Engine\Engine.s
+
+# target to generate assembly for a file
+Engine\Engine.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\Engine.c.s
+.PHONY : Engine\Engine.c.s
+
+Engine\SceneManager.obj: Engine\SceneManager.c.obj
+
+.PHONY : Engine\SceneManager.obj
+
+# target to build an object file
+Engine\SceneManager.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj
+.PHONY : Engine\SceneManager.c.obj
+
+Engine\SceneManager.i: Engine\SceneManager.c.i
+
+.PHONY : Engine\SceneManager.i
+
+# target to preprocess a source file
+Engine\SceneManager.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.i
+.PHONY : Engine\SceneManager.c.i
+
+Engine\SceneManager.s: Engine\SceneManager.c.s
+
+.PHONY : Engine\SceneManager.s
+
+# target to generate assembly for a file
+Engine\SceneManager.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.s
+.PHONY : Engine\SceneManager.c.s
+
+Scenes\SCENE_BattleMap.obj: Scenes\SCENE_BattleMap.c.obj
+
+.PHONY : Scenes\SCENE_BattleMap.obj
+
+# target to build an object file
+Scenes\SCENE_BattleMap.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj
+.PHONY : Scenes\SCENE_BattleMap.c.obj
+
+Scenes\SCENE_BattleMap.i: Scenes\SCENE_BattleMap.c.i
+
+.PHONY : Scenes\SCENE_BattleMap.i
+
+# target to preprocess a source file
+Scenes\SCENE_BattleMap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.i
+.PHONY : Scenes\SCENE_BattleMap.c.i
+
+Scenes\SCENE_BattleMap.s: Scenes\SCENE_BattleMap.c.s
+
+.PHONY : Scenes\SCENE_BattleMap.s
+
+# target to generate assembly for a file
+Scenes\SCENE_BattleMap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.s
+.PHONY : Scenes\SCENE_BattleMap.c.s
+
+Scenes\SCENE_Credits.obj: Scenes\SCENE_Credits.c.obj
+
+.PHONY : Scenes\SCENE_Credits.obj
+
+# target to build an object file
+Scenes\SCENE_Credits.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj
+.PHONY : Scenes\SCENE_Credits.c.obj
+
+Scenes\SCENE_Credits.i: Scenes\SCENE_Credits.c.i
+
+.PHONY : Scenes\SCENE_Credits.i
+
+# target to preprocess a source file
+Scenes\SCENE_Credits.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.i
+.PHONY : Scenes\SCENE_Credits.c.i
+
+Scenes\SCENE_Credits.s: Scenes\SCENE_Credits.c.s
+
+.PHONY : Scenes\SCENE_Credits.s
+
+# target to generate assembly for a file
+Scenes\SCENE_Credits.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.s
+.PHONY : Scenes\SCENE_Credits.c.s
+
+Scenes\SCENE_MainMenu.obj: Scenes\SCENE_MainMenu.c.obj
+
+.PHONY : Scenes\SCENE_MainMenu.obj
+
+# target to build an object file
+Scenes\SCENE_MainMenu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj
+.PHONY : Scenes\SCENE_MainMenu.c.obj
+
+Scenes\SCENE_MainMenu.i: Scenes\SCENE_MainMenu.c.i
+
+.PHONY : Scenes\SCENE_MainMenu.i
+
+# target to preprocess a source file
+Scenes\SCENE_MainMenu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.i
+.PHONY : Scenes\SCENE_MainMenu.c.i
+
+Scenes\SCENE_MainMenu.s: Scenes\SCENE_MainMenu.c.s
+
+.PHONY : Scenes\SCENE_MainMenu.s
+
+# target to generate assembly for a file
+Scenes\SCENE_MainMenu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.s
+.PHONY : Scenes\SCENE_MainMenu.c.s
+
+Scenes\SCENE_MapViewer.obj: Scenes\SCENE_MapViewer.c.obj
+
+.PHONY : Scenes\SCENE_MapViewer.obj
+
+# target to build an object file
+Scenes\SCENE_MapViewer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj
+.PHONY : Scenes\SCENE_MapViewer.c.obj
+
+Scenes\SCENE_MapViewer.i: Scenes\SCENE_MapViewer.c.i
+
+.PHONY : Scenes\SCENE_MapViewer.i
+
+# target to preprocess a source file
+Scenes\SCENE_MapViewer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.i
+.PHONY : Scenes\SCENE_MapViewer.c.i
+
+Scenes\SCENE_MapViewer.s: Scenes\SCENE_MapViewer.c.s
+
+.PHONY : Scenes\SCENE_MapViewer.s
+
+# target to generate assembly for a file
+Scenes\SCENE_MapViewer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.s
+.PHONY : Scenes\SCENE_MapViewer.c.s
+
+Scenes\SCENE_NewWorldMenu.obj: Scenes\SCENE_NewWorldMenu.c.obj
+
+.PHONY : Scenes\SCENE_NewWorldMenu.obj
+
+# target to build an object file
+Scenes\SCENE_NewWorldMenu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj
+.PHONY : Scenes\SCENE_NewWorldMenu.c.obj
+
+Scenes\SCENE_NewWorldMenu.i: Scenes\SCENE_NewWorldMenu.c.i
+
+.PHONY : Scenes\SCENE_NewWorldMenu.i
+
+# target to preprocess a source file
+Scenes\SCENE_NewWorldMenu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.i
+.PHONY : Scenes\SCENE_NewWorldMenu.c.i
+
+Scenes\SCENE_NewWorldMenu.s: Scenes\SCENE_NewWorldMenu.c.s
+
+.PHONY : Scenes\SCENE_NewWorldMenu.s
+
+# target to generate assembly for a file
+Scenes\SCENE_NewWorldMenu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.s
+.PHONY : Scenes\SCENE_NewWorldMenu.c.s
+
+Scenes\SCENE_ProceduralWorldMenu.obj: Scenes\SCENE_ProceduralWorldMenu.c.obj
+
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.obj
+
+# target to build an object file
+Scenes\SCENE_ProceduralWorldMenu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.c.obj
+
+Scenes\SCENE_ProceduralWorldMenu.i: Scenes\SCENE_ProceduralWorldMenu.c.i
+
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.i
+
+# target to preprocess a source file
+Scenes\SCENE_ProceduralWorldMenu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.i
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.c.i
+
+Scenes\SCENE_ProceduralWorldMenu.s: Scenes\SCENE_ProceduralWorldMenu.c.s
+
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.s
+
+# target to generate assembly for a file
+Scenes\SCENE_ProceduralWorldMenu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.s
+.PHONY : Scenes\SCENE_ProceduralWorldMenu.c.s
+
+Scenes\SCENE_SplashScreen.obj: Scenes\SCENE_SplashScreen.c.obj
+
+.PHONY : Scenes\SCENE_SplashScreen.obj
+
+# target to build an object file
+Scenes\SCENE_SplashScreen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj
+.PHONY : Scenes\SCENE_SplashScreen.c.obj
+
+Scenes\SCENE_SplashScreen.i: Scenes\SCENE_SplashScreen.c.i
+
+.PHONY : Scenes\SCENE_SplashScreen.i
+
+# target to preprocess a source file
+Scenes\SCENE_SplashScreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.i
+.PHONY : Scenes\SCENE_SplashScreen.c.i
+
+Scenes\SCENE_SplashScreen.s: Scenes\SCENE_SplashScreen.c.s
+
+.PHONY : Scenes\SCENE_SplashScreen.s
+
+# target to generate assembly for a file
+Scenes\SCENE_SplashScreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.s
+.PHONY : Scenes\SCENE_SplashScreen.c.s
+
+Scenes\SCENE_WorldPainter.obj: Scenes\SCENE_WorldPainter.c.obj
+
+.PHONY : Scenes\SCENE_WorldPainter.obj
+
+# target to build an object file
+Scenes\SCENE_WorldPainter.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj
+.PHONY : Scenes\SCENE_WorldPainter.c.obj
+
+Scenes\SCENE_WorldPainter.i: Scenes\SCENE_WorldPainter.c.i
+
+.PHONY : Scenes\SCENE_WorldPainter.i
+
+# target to preprocess a source file
+Scenes\SCENE_WorldPainter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.i
+.PHONY : Scenes\SCENE_WorldPainter.c.i
+
+Scenes\SCENE_WorldPainter.s: Scenes\SCENE_WorldPainter.c.s
+
+.PHONY : Scenes\SCENE_WorldPainter.s
+
+# target to generate assembly for a file
+Scenes\SCENE_WorldPainter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.s
+.PHONY : Scenes\SCENE_WorldPainter.c.s
+
+Scenes\SCENE_WorldPainterMenu.obj: Scenes\SCENE_WorldPainterMenu.c.obj
+
+.PHONY : Scenes\SCENE_WorldPainterMenu.obj
+
+# target to build an object file
+Scenes\SCENE_WorldPainterMenu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj
+.PHONY : Scenes\SCENE_WorldPainterMenu.c.obj
+
+Scenes\SCENE_WorldPainterMenu.i: Scenes\SCENE_WorldPainterMenu.c.i
+
+.PHONY : Scenes\SCENE_WorldPainterMenu.i
+
+# target to preprocess a source file
+Scenes\SCENE_WorldPainterMenu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.i
+.PHONY : Scenes\SCENE_WorldPainterMenu.c.i
+
+Scenes\SCENE_WorldPainterMenu.s: Scenes\SCENE_WorldPainterMenu.c.s
+
+.PHONY : Scenes\SCENE_WorldPainterMenu.s
+
+# target to generate assembly for a file
+Scenes\SCENE_WorldPainterMenu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.s
+.PHONY : Scenes\SCENE_WorldPainterMenu.c.s
+
+Utility\ProceduralGeneration.obj: Utility\ProceduralGeneration.c.obj
+
+.PHONY : Utility\ProceduralGeneration.obj
+
+# target to build an object file
+Utility\ProceduralGeneration.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj
+.PHONY : Utility\ProceduralGeneration.c.obj
+
+Utility\ProceduralGeneration.i: Utility\ProceduralGeneration.c.i
+
+.PHONY : Utility\ProceduralGeneration.i
+
+# target to preprocess a source file
+Utility\ProceduralGeneration.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.i
+.PHONY : Utility\ProceduralGeneration.c.i
+
+Utility\ProceduralGeneration.s: Utility\ProceduralGeneration.c.s
+
+.PHONY : Utility\ProceduralGeneration.s
+
+# target to generate assembly for a file
+Utility\ProceduralGeneration.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.s
+.PHONY : Utility\ProceduralGeneration.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -163,6 +487,42 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Raylib_Game
+	@echo ... Engine/Engine.obj
+	@echo ... Engine/Engine.i
+	@echo ... Engine/Engine.s
+	@echo ... Engine/SceneManager.obj
+	@echo ... Engine/SceneManager.i
+	@echo ... Engine/SceneManager.s
+	@echo ... Scenes/SCENE_BattleMap.obj
+	@echo ... Scenes/SCENE_BattleMap.i
+	@echo ... Scenes/SCENE_BattleMap.s
+	@echo ... Scenes/SCENE_Credits.obj
+	@echo ... Scenes/SCENE_Credits.i
+	@echo ... Scenes/SCENE_Credits.s
+	@echo ... Scenes/SCENE_MainMenu.obj
+	@echo ... Scenes/SCENE_MainMenu.i
+	@echo ... Scenes/SCENE_MainMenu.s
+	@echo ... Scenes/SCENE_MapViewer.obj
+	@echo ... Scenes/SCENE_MapViewer.i
+	@echo ... Scenes/SCENE_MapViewer.s
+	@echo ... Scenes/SCENE_NewWorldMenu.obj
+	@echo ... Scenes/SCENE_NewWorldMenu.i
+	@echo ... Scenes/SCENE_NewWorldMenu.s
+	@echo ... Scenes/SCENE_ProceduralWorldMenu.obj
+	@echo ... Scenes/SCENE_ProceduralWorldMenu.i
+	@echo ... Scenes/SCENE_ProceduralWorldMenu.s
+	@echo ... Scenes/SCENE_SplashScreen.obj
+	@echo ... Scenes/SCENE_SplashScreen.i
+	@echo ... Scenes/SCENE_SplashScreen.s
+	@echo ... Scenes/SCENE_WorldPainter.obj
+	@echo ... Scenes/SCENE_WorldPainter.i
+	@echo ... Scenes/SCENE_WorldPainter.s
+	@echo ... Scenes/SCENE_WorldPainterMenu.obj
+	@echo ... Scenes/SCENE_WorldPainterMenu.i
+	@echo ... Scenes/SCENE_WorldPainterMenu.s
+	@echo ... Utility/ProceduralGeneration.obj
+	@echo ... Utility/ProceduralGeneration.i
+	@echo ... Utility/ProceduralGeneration.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
