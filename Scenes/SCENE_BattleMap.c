@@ -44,6 +44,10 @@ SCENE_METHOD SCENE_BATTLE_MAP_Update() {
     }
     data->camera.zoom = CLAMP(data->camera.zoom, 0.6, 4.95);
 
+    if (IsKeyPressed(KEY_ESCAPE)) {
+        ChangeScene(SCENE_NewWorldMenu);
+    }
+
     return RETURN_SUCCESS;
 }
 
