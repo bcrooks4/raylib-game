@@ -79,7 +79,9 @@ SCENE_METHOD SCENE_WorldPainter_Update() {
     }
 
     if (IsKeyPressed(KEY_ENTER)) {
-        Color* pixels = GenerateVoronoiTexture(data->map, data->width, data->height, data->textureScale);
+        int* regionMap = (int*)malloc((data->width * data->textureScale) * (data->height * data->textureScale) * sizeof(int));
+        Color* pixels = GenerateCellVoronoiTexture(data->map, data->width, data->height, data->textureScale, regionMap);
+                //GenerateRandomVoronoiTexture(data->map, data->width * data->textureScale, data->height * data->textureScale, 1000, data->textureScale);
 
         Image image = {
                 .data = pixels,

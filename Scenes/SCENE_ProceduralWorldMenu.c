@@ -85,7 +85,10 @@ SCENE_METHOD SCENE_PROCEDURAL_WORLD_MENU_UPDATE() {
                     }
                 }
 
-                Color* pixels = GenerateVoronoiTexture(map, width, height, scale);
+                int* regionMap = (int*)malloc((width * height) * (height * scale) * sizeof(int));
+
+                Color* pixels = GenerateCellVoronoiTexture(map, width, height, scale, regionMap);
+                        //GenerateRandomVoronoiTexture(map, width * scale, height * scale, 1000, scale);
                 Image image = (Image) {
                         .data = pixels,
                         .width = width * scale,

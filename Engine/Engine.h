@@ -7,6 +7,7 @@
 #include "SceneManager.h"
 #include <stdlib.h>
 #include <raylib.h>
+#include <stdio.h>
 
 #define RESULT          int
 #define RETURN_SUCCESS  0

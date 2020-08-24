@@ -14,6 +14,7 @@ SCENE_METHOD SCENE_MAP_VIEWER_Close();
 typedef struct {
     Texture texture;
     Camera2D camera;
+    int* regions;
 } SCENE_MAP_VIEWER_Data;
 
 #endif //RAYLIB_GAME_SCENE_MAPVIEWER_H

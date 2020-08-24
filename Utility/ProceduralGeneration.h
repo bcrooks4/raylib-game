@@ -7,6 +7,7 @@
 
 #include "../Engine/Engine.h"
 
-Color *GenerateVoronoiTexture(const int *map, int width, int height, int scale);
+Color *GenerateCellVoronoiTexture(const int *map, int width, int height, int scale, int* regionMap);
+Color *GenerateRandomVoronoiTexture(const int *map, int width, int height, int pointCount, int scale);
 
 #endif //RAYLIB_GAME_PROCEDURALGENERATION_H

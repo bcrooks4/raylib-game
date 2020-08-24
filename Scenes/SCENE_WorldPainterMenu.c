@@ -63,16 +63,16 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_UPDATE() {
 
                 switch (scale) {
                     case 0:
-                        cData->textureScale = 4;
+                        cData->textureScale = 8;
                         break;
                     case 1:
-                        cData->textureScale = 8;
-                        break;
-                    case 2:
                         cData->textureScale = 16;
                         break;
+                    case 2:
+                        cData->textureScale = 24;
+                        break;
                     default:
-                        cData->textureScale = 8;
+                        cData->textureScale = 16;
                         break;
                 }
 
