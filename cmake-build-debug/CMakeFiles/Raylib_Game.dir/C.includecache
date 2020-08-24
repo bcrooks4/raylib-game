@@ -58,6 +58,10 @@ C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.c
+SCENE_NewWorldMenu.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
@@ -73,10 +77,6 @@ C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
-
-C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.c
-SCENE_WorldPainterMenu.h
-C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 ../Engine/Engine.h

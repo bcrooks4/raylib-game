@@ -61,7 +61,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
                 DrawText("World Painter", 32, 128, 32, textColour);
                 break;
             case 1:
-                DrawText("Procedural", 32, 128 + i * 32, 32, textColour);
+                DrawText("Procedural [Slightly Broken ATM]", 32, 128 + i * 32, 32, textColour);
                 break;
             case 2:
                 DrawText("Battle Map", 32, 128 + i * 32, 32, textColour);

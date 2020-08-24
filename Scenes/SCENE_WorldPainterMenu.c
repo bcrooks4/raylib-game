@@ -9,7 +9,7 @@ SCENE_METHOD SCENE_WORLD_PAINTER_MENU_START() {
     SCENE_WORLD_PAINTER_MENU_Data *data = SceneData;
     data->cursorHighlight = 0;
     data->size = 1;
-    data->scale = 1;
+    data->scale = 2;
     return RETURN_SUCCESS;
 }
 
