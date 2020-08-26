@@ -4,6 +4,8 @@
 #include "Engine.h"
 
 bool contextData = false;
+bool sceneChanged = false;
+SCENE currentScene = -1;
 void* SceneData = 0;
 
 RESULT ChangeScene(SCENE scene) {
@@ -12,6 +14,9 @@ RESULT ChangeScene(SCENE scene) {
             Close();
         }
     }
+
+    sceneChanged = true;
+    currentScene = scene;
 
     switch (scene) {
         case SCENE_SplashScreen:
@@ -67,6 +72,12 @@ RESULT ChangeScene(SCENE scene) {
             UPDATE_SCENE = SCENE_BATTLE_MAP_Update;
             RENDER_SCENE = SCENE_BATTLE_MAP_Render;
             CLOSE_SCENE = SCENE_BATTLE_MAP_Close;
+            break;
+        case SCENE_WorldCreation:
+            START_SCENE = SCENE_WORLD_CREATION_START;
+            UPDATE_SCENE = SCENE_WORLD_CREATION_UPDATE;
+            RENDER_SCENE = SCENE_WORLD_CREATION_RENDER;
+            CLOSE_SCENE = SCENE_WORLD_CREATION_CLOSE;
             break;
         default:
             return RETURN_ERROR;

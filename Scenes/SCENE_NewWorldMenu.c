@@ -31,6 +31,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
                 ChangeScene(SCENE_BattleMap);
                 break;
             case 3:
+                ChangeScene(SCENE_WorldCreation);
                 break;
         }
     }

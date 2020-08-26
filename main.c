@@ -5,8 +5,15 @@ int main() {
 
     ChangeScene(SCENE_SplashScreen);
     while (!WindowShouldClose()) {
-        Update();
-        Draw();
+        sceneChanged = false;
+
+        if (!sceneChanged) Update();
+        if (!sceneChanged) Draw();
+        else {
+            BeginDrawing();
+                ClearBackground(BLACK);
+            EndDrawing();
+        }
     }
 
 

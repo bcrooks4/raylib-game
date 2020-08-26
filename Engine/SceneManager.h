@@ -20,10 +20,13 @@
 RESULT ChangeScene();
 
 extern bool contextData;
+extern bool sceneChanged;
 extern void *SceneData;
+extern SCENE currentScene;
 SCENE_METHOD (*START_SCENE)     ();
 SCENE_METHOD (*UPDATE_SCENE)    ();
 SCENE_METHOD (*RENDER_SCENE)    ();
+
 SCENE_METHOD (*CLOSE_SCENE)     ();
 
 enum Scenes {

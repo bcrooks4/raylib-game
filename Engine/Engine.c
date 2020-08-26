@@ -15,6 +15,7 @@ RESULT Initialise() {
 RESULT Update() {
     if (UPDATE_SCENE) {
         if ((*UPDATE_SCENE)()) {
+            printf("\n\nError in update function!\n\n");
             Close();
         }
     }

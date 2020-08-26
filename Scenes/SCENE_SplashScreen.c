@@ -113,7 +113,7 @@ SCENE_METHOD SCENE_SPLASH_Render() {
                  50, Fade(BLACK, data->alpha));
     } else if (data->state == 4) {
         ClearBackground(BLACK);
-        DrawText("A WORLD_PAINTER by Bill Crooks", 0, GetScreenHeight() - 32, 32, RAYWHITE);
+        DrawText("A game by Bill Crooks", 0, GetScreenHeight() - 32, 32, RAYWHITE);
     }
 
     return RETURN_SUCCESS;
