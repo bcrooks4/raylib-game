@@ -120,3 +120,8 @@ Color *GenerateRandomVoronoiTexture(const int *map, int width, int height, int p
 
     return pixels;
 }
+
+void ExportGeneratedMap(const char *filename, const int *map, int width, int height, int scale) {
+    FILE *file;
+    fopen_s(file, "map.md", "w");
+}

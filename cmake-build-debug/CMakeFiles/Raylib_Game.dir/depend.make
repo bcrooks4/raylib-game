@@ -11,6 +11,7 @@ CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_MapViewer.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\Engine.c.obj: ..\Utility\Macro.h
@@ -27,6 +28,7 @@ CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_MapViewer.
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Engine\SceneManager.c.obj: ..\Utility\Macro.h
@@ -43,6 +45,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_MapView
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj: ..\Utility\Macro.h
@@ -59,6 +62,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_MapViewer
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_Credits.c.obj: ..\Utility\Macro.h
@@ -75,6 +79,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_MapViewe
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MainMenu.c.obj: ..\Utility\Macro.h
@@ -91,6 +96,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_MapView
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_MapViewer.c.obj: ..\Utility\Macro.h
@@ -107,6 +113,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_NewW
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_NewWorldMenu.c.obj: ..\Utility\Macro.h
@@ -123,6 +130,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCE
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.c
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj: ..\Utility\Macro.h
@@ -139,11 +147,29 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_NewW
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_SplashScreen.c
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Utility\Macro.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: ..\Utility\ProceduralGeneration.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.obj: C:\dev\vcpkg\installed\x64-windows\include\raylib.h
+
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Engine\Engine.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Engine\SceneManager.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_BattleMap.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_Credits.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_MainMenu.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_MapViewer.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_WorldCreation.c
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_WorldCreation.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_WorldPainter.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Utility\Macro.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: ..\Utility\ProceduralGeneration.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj: C:\dev\vcpkg\installed\x64-windows\include\raylib.h
 
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Engine\Engine.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Engine\SceneManager.h
@@ -154,6 +180,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_MapV
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_WorldPainter.c
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainter.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
@@ -170,6 +197,7 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_WorldPainterMenu.c
 CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
@@ -186,6 +214,7 @@ CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_M
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj: ..\Utility\Macro.h
@@ -202,6 +231,7 @@ CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_MapViewer.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_NewWorldMenu.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_ProceduralWorldMenu.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_SplashScreen.h
+CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_WorldCreation.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_WorldPainter.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Scenes\SCENE_WorldPainterMenu.h
 CMakeFiles\Raylib_Game.dir\main.c.obj: ..\Utility\Macro.h

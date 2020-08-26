@@ -15,6 +15,7 @@
 #include "../Scenes/SCENE_WorldPainterMenu.h"
 #include "../Scenes/SCENE_ProceduralWorldMenu.h"
 #include "../Scenes/SCENE_BattleMap.h"
+#include "../Scenes/SCENE_WorldCreation.h"
 
 RESULT ChangeScene();
 
@@ -35,6 +36,7 @@ enum Scenes {
     SCENE_WorldPainterMenu,
     SCENE_ProceduralWorldMenu,
     SCENE_BattleMap,
+    SCENE_WorldCreation,
 };
 
 #endif //RAYLIB_GAME_SCENEMANAGER_H

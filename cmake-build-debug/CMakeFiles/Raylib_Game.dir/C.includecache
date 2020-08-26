@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.c
+Engine.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 ../Utility/Macro.h
 C:/Users/Bill/CLionProjects/Raylib Game/Utility/Macro.h
@@ -19,6 +23,10 @@ raylib.h
 -
 stdio.h
 -
+
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.c
+Engine.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.h
 Engine.h
@@ -41,18 +49,36 @@ C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.h
 ../Scenes/SCENE_BattleMap.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
+../Scenes/SCENE_WorldCreation.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.c
+SCENE_BattleMap.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_BattleMap.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.c
+SCENE_Credits.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_Credits.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.c
+SCENE_MainMenu.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MainMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.c
+SCENE_MapViewer.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_MapViewer.h
 ../Engine/Engine.h
@@ -66,17 +92,45 @@ C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_NewWorldMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.c
+SCENE_ProceduralWorldMenu.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_ProceduralWorldMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.c
+SCENE_SplashScreen.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.h
+../Engine/SceneManager.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.c
+SCENE_WorldCreation.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.h
+../Engine/Engine.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.c
+SCENE_WorldPainter.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.h
+../Utility/Macro.h
+C:/Users/Bill/CLionProjects/Raylib Game/Utility/Macro.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.c
+SCENE_WorldPainterMenu.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 ../Engine/Engine.h
@@ -84,8 +138,16 @@ C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Utility/Macro.h
 
+C:/Users/Bill/CLionProjects/Raylib Game/Utility/ProceduralGeneration.c
+ProceduralGeneration.h
+C:/Users/Bill/CLionProjects/Raylib Game/Utility/ProceduralGeneration.h
+
 C:/Users/Bill/CLionProjects/Raylib Game/Utility/ProceduralGeneration.h
 ../Engine/Engine.h
+C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/main.c
+Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 
 C:/dev/vcpkg/installed/x64-windows/include/raylib.h

@@ -370,6 +370,33 @@ Scenes\SCENE_SplashScreen.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_SplashScreen.c.s
 .PHONY : Scenes\SCENE_SplashScreen.c.s
 
+Scenes\SCENE_WorldCreation.obj: Scenes\SCENE_WorldCreation.c.obj
+
+.PHONY : Scenes\SCENE_WorldCreation.obj
+
+# target to build an object file
+Scenes\SCENE_WorldCreation.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj
+.PHONY : Scenes\SCENE_WorldCreation.c.obj
+
+Scenes\SCENE_WorldCreation.i: Scenes\SCENE_WorldCreation.c.i
+
+.PHONY : Scenes\SCENE_WorldCreation.i
+
+# target to preprocess a source file
+Scenes\SCENE_WorldCreation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.i
+.PHONY : Scenes\SCENE_WorldCreation.c.i
+
+Scenes\SCENE_WorldCreation.s: Scenes\SCENE_WorldCreation.c.s
+
+.PHONY : Scenes\SCENE_WorldCreation.s
+
+# target to generate assembly for a file
+Scenes\SCENE_WorldCreation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.s
+.PHONY : Scenes\SCENE_WorldCreation.c.s
+
 Scenes\SCENE_WorldPainter.obj: Scenes\SCENE_WorldPainter.c.obj
 
 .PHONY : Scenes\SCENE_WorldPainter.obj
@@ -514,6 +541,9 @@ help:
 	@echo ... Scenes/SCENE_SplashScreen.obj
 	@echo ... Scenes/SCENE_SplashScreen.i
 	@echo ... Scenes/SCENE_SplashScreen.s
+	@echo ... Scenes/SCENE_WorldCreation.obj
+	@echo ... Scenes/SCENE_WorldCreation.i
+	@echo ... Scenes/SCENE_WorldCreation.s
 	@echo ... Scenes/SCENE_WorldPainter.obj
 	@echo ... Scenes/SCENE_WorldPainter.i
 	@echo ... Scenes/SCENE_WorldPainter.s

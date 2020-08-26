@@ -140,6 +140,12 @@
 		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_SplashScreen.h">
 			<Option target="Raylib_Game"/>
 		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldCreation.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainter.c">
 			<Option target="Raylib_Game"/>
 		</Unit>

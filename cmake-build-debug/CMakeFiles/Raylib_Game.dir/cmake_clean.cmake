@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_NewWorldMenu.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_ProceduralWorldMenu.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_SplashScreen.c.obj"
+  "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldCreation.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldPainter.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldPainterMenu.c.obj"
   "CMakeFiles/Raylib_Game.dir/Utility/ProceduralGeneration.c.obj"

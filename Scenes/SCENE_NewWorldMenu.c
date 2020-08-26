@@ -30,6 +30,8 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
             case 2:
                 ChangeScene(SCENE_BattleMap);
                 break;
+            case 3:
+                break;
         }
     }
 
@@ -38,7 +40,11 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_UPDATE() {
     } else if (IsKeyPressed(KEY_UP)) {
         data->cursorHighlight--;
     }
-    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 2);
+    if (data->cursorHighlight > 3)
+        data->cursorHighlight = 0;
+    else if (data->cursorHighlight < 0)
+        data->cursorHighlight = 3;
+    data->cursorHighlight = CLAMP(data->cursorHighlight, 0, 3);
 
     return RETURN_SUCCESS;
 }
@@ -54,7 +60,7 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
     );
     DrawText("NEW WORLD", 16, 32, 64, WHITE);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         Color textColour = data->cursorHighlight == i ? WHITE : (Color) {50, 50, 50, 255};
         switch (i) {
             case 0:
@@ -65,6 +71,9 @@ SCENE_METHOD SCENE_NEW_WORLD_MENU_RENDER() {
                 break;
             case 2:
                 DrawText("Battle Map", 32, 128 + i * 32, 32, textColour);
+                break;
+            case 3:
+                DrawText("New World Creation [WIP]", 32, 128 + i * 32, 32, textColour);
                 break;
         }
     }
