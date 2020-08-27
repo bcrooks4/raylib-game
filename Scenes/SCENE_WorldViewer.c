@@ -4,18 +4,17 @@
 
 #include "SCENE_WorldViewer.h"
 
-
 SCENE_METHOD SCENE_WORLD_VIEWER_Start() {
-    printf("\n\nBRU\n\n");
     SCENE_WORLD_VIEWER_Data *data = malloc(sizeof(SCENE_WORLD_VIEWER_Data));
     SceneData = data;
+
     data->camera = (Camera2D) {0};
     data->camera.zoom = 1;
+
     return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_WORLD_VIEWER_Update() {
-    printf("Start update");
     SCENE_WORLD_VIEWER_Data *data = SceneData;
 
     if (IsKeyPressed(KEY_ESCAPE)) {
@@ -45,8 +44,6 @@ SCENE_METHOD SCENE_WORLD_VIEWER_Update() {
         data->camera.zoom -= 0.05f;
     }
     data->camera.zoom = CLAMP(data->camera.zoom, 0.1, 4.95);
-
-    printf("Finished update");
     return RETURN_SUCCESS;
 }
 
@@ -54,14 +51,12 @@ SCENE_METHOD SCENE_WORLD_VIEWER_Render() {
     SCENE_WORLD_VIEWER_Data *data = SceneData;
 
     BeginMode2D(data->camera);
-    DrawRectangle(0, 0, 128, 128, WHITE);
 
     EndMode2D();
-    printf("Finished rendering");
+
     return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_WORLD_VIEWER_Close() {
-
     return RETURN_SUCCESS;
 }

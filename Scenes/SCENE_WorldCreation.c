@@ -99,11 +99,14 @@ SCENE_METHOD SCENE_WORLD_CREATION_START() {
 }
 
 SCENE_METHOD SCENE_WORLD_CREATION_UPDATE() {
-    ChangeScene(SCENE_WorldViewer);
+    if (IsKeyPressed(KEY_ENTER)) {
+        ChangeScene(SCENE_WorldViewer);
+    }
     return RETURN_SUCCESS;
 }
 
 SCENE_METHOD SCENE_WORLD_CREATION_RENDER() {
+    DrawText("PRESS ENTER TO CONTINUE", 0, GetScreenHeight() - 32, 32, GRAY);
     return RETURN_SUCCESS;
 }
 
