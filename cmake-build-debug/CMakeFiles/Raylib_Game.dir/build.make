@@ -327,6 +327,25 @@ CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.s: cmake_force
  /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.s /c "C:\Users\Bill\CLionProjects\Raylib Game\Scenes\SCENE_WorldCreation.c"
 <<
 
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj: CMakeFiles\Raylib_Game.dir\flags.make
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj: ..\Scenes\SCENE_WorldViewer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Bill\CLionProjects\Raylib Game\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldViewer.c.obj"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx64\x64\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj /FdCMakeFiles\Raylib_Game.dir\ /FS -c "C:\Users\Bill\CLionProjects\Raylib Game\Scenes\SCENE_WorldViewer.c"
+<<
+
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldViewer.c.i"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx64\x64\cl.exe > CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Bill\CLionProjects\Raylib Game\Scenes\SCENE_WorldViewer.c"
+<<
+
+CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldViewer.c.s"
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx64\x64\cl.exe @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.s /c "C:\Users\Bill\CLionProjects\Raylib Game\Scenes\SCENE_WorldViewer.c"
+<<
+
 # Object files for target Raylib_Game
 Raylib_Game_OBJECTS = \
 "CMakeFiles\Raylib_Game.dir\main.c.obj" \
@@ -342,7 +361,8 @@ Raylib_Game_OBJECTS = \
 "CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.obj" \
 "CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj" \
 "CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj" \
-"CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj"
+"CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj" \
+"CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj"
 
 # External object files for target Raylib_Game
 Raylib_Game_EXTERNAL_OBJECTS =
@@ -361,11 +381,12 @@ Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\Scenes\SCENE_ProceduralWorldMenu.c.o
 Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\Utility\ProceduralGeneration.c.obj
 Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\Scenes\SCENE_BattleMap.c.obj
 Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldCreation.c.obj
+Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj
 Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\build.make
 Raylib_Game.exe: CMakeFiles\Raylib_Game.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Bill\CLionProjects\Raylib Game\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Linking C executable Raylib_Game.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Bill\CLionProjects\Raylib Game\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable Raylib_Game.exe"
 	"C:\Program Files\JetBrains\CLion 2019.3.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Raylib_Game.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1425~1.286\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\Raylib_Game.dir\objects1.rsp @<<
- /out:Raylib_Game.exe /implib:Raylib_Game.lib /pdb:"C:\Users\Bill\CLionProjects\Raylib Game\cmake-build-debug\Raylib_Game.pdb" /version:0.0  /machine:x64 /debug /INCREMENTAL /subsystem:console   -LIBPATH:C:\dev\vcpkg\installed\x64-windows\lib  raylib.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:Raylib_Game.exe /implib:Raylib_Game.lib /pdb:"C:\Users\Bill\CLionProjects\Raylib Game\cmake-build-debug\Raylib_Game.pdb" /version:0.0  /machine:x64 /debug /INCREMENTAL /subsystem:console   -LIBPATH:C:\dev\vcpkg\installed\x64-windows\lib  raylib.lib lua.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 	powershell -noprofile -executionpolicy Bypass -file C:/dev/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary "C:/Users/Bill/CLionProjects/Raylib Game/cmake-build-debug/Raylib_Game.exe" -installedDir C:/dev/vcpkg/installed/x64-windows/debug/bin -OutVariable out
 

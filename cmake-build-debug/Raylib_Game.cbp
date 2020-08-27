@@ -158,6 +158,12 @@
 		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h">
 			<Option target="Raylib_Game"/>
 		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldViewer.c">
+			<Option target="Raylib_Game"/>
+		</Unit>
+		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldViewer.h">
+			<Option target="Raylib_Game"/>
+		</Unit>
 		<Unit filename="C:/Users/Bill/CLionProjects/Raylib Game/Utility/Macro.h">
 			<Option target="Raylib_Game"/>
 		</Unit>

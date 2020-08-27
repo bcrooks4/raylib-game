@@ -16,4 +16,9 @@ typedef struct {
     int x;
 } SCENE_WORLD_CREATION_Data;
 
+typedef struct {
+    Vector2 position;
+    int value;
+} Cell;
+
 #endif //RAYLIB_GAME_SCENE_WORLDCREATION_H

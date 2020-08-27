@@ -8,6 +8,11 @@
 #include <stdlib.h>
 #include <raylib.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <lua.h>
+#include <lualib.h>
+#include <lauxlib.h>
 
 #define RESULT          int
 #define RETURN_SUCCESS  0

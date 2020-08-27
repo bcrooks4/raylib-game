@@ -9,6 +9,6 @@
 
 Color *GenerateCellVoronoiTexture(const int *map, int width, int height, int scale, int* regionMap);
 Color *GenerateRandomVoronoiTexture(const int *map, int width, int height, int pointCount, int scale);
-void ExportGeneratedMap(const char *filename, const int *map, int width, int height, int scale);
+void ExportGeneratedMap(const char *filename, const int *inputMap, int width, int height, int scale);
 
 #endif //RAYLIB_GAME_PROCEDURALGENERATION_H

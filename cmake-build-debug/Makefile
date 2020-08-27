@@ -451,6 +451,33 @@ Scenes\SCENE_WorldPainterMenu.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldPainterMenu.c.s
 .PHONY : Scenes\SCENE_WorldPainterMenu.c.s
 
+Scenes\SCENE_WorldViewer.obj: Scenes\SCENE_WorldViewer.c.obj
+
+.PHONY : Scenes\SCENE_WorldViewer.obj
+
+# target to build an object file
+Scenes\SCENE_WorldViewer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.obj
+.PHONY : Scenes\SCENE_WorldViewer.c.obj
+
+Scenes\SCENE_WorldViewer.i: Scenes\SCENE_WorldViewer.c.i
+
+.PHONY : Scenes\SCENE_WorldViewer.i
+
+# target to preprocess a source file
+Scenes\SCENE_WorldViewer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.i
+.PHONY : Scenes\SCENE_WorldViewer.c.i
+
+Scenes\SCENE_WorldViewer.s: Scenes\SCENE_WorldViewer.c.s
+
+.PHONY : Scenes\SCENE_WorldViewer.s
+
+# target to generate assembly for a file
+Scenes\SCENE_WorldViewer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Raylib_Game.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Raylib_Game.dir\Scenes\SCENE_WorldViewer.c.s
+.PHONY : Scenes\SCENE_WorldViewer.c.s
+
 Utility\ProceduralGeneration.obj: Utility\ProceduralGeneration.c.obj
 
 .PHONY : Utility\ProceduralGeneration.obj
@@ -550,6 +577,9 @@ help:
 	@echo ... Scenes/SCENE_WorldPainterMenu.obj
 	@echo ... Scenes/SCENE_WorldPainterMenu.i
 	@echo ... Scenes/SCENE_WorldPainterMenu.s
+	@echo ... Scenes/SCENE_WorldViewer.obj
+	@echo ... Scenes/SCENE_WorldViewer.i
+	@echo ... Scenes/SCENE_WorldViewer.s
 	@echo ... Utility/ProceduralGeneration.obj
 	@echo ... Utility/ProceduralGeneration.i
 	@echo ... Utility/ProceduralGeneration.s

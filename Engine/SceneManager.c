@@ -79,6 +79,12 @@ RESULT ChangeScene(SCENE scene) {
             RENDER_SCENE = SCENE_WORLD_CREATION_RENDER;
             CLOSE_SCENE = SCENE_WORLD_CREATION_CLOSE;
             break;
+        case SCENE_WorldViewer:
+            START_SCENE = SCENE_WORLD_VIEWER_Start;
+            START_SCENE = SCENE_WORLD_VIEWER_Update;
+            START_SCENE = SCENE_WORLD_VIEWER_Render;
+            START_SCENE = SCENE_WORLD_VIEWER_Close;
+            break;
         default:
             return RETURN_ERROR;
     }
@@ -93,7 +99,7 @@ RESULT ChangeScene(SCENE scene) {
         (*START_SCENE)();
     }
     else {
-
+        return RETURN_ERROR;
     }
     return RETURN_SUCCESS;
 }

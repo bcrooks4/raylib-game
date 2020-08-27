@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldCreation.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldPainter.c.obj"
   "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldPainterMenu.c.obj"
+  "CMakeFiles/Raylib_Game.dir/Scenes/SCENE_WorldViewer.c.obj"
   "CMakeFiles/Raylib_Game.dir/Utility/ProceduralGeneration.c.obj"
   "CMakeFiles/Raylib_Game.dir/main.c.obj"
   "Raylib_Game.exe"
