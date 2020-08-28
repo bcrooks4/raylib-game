@@ -30,10 +30,6 @@ lualib.h
 lauxlib.h
 -
 
-C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.c
-Engine.h
-C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
-
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/SceneManager.h
 Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
@@ -99,6 +95,10 @@ C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldPainterMenu.h
 ../Engine/Engine.h
 C:/Users/Bill/CLionProjects/Raylib Game/Engine/Engine.h
+
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldViewer.c
+SCENE_WorldViewer.h
+C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldViewer.h
 
 C:/Users/Bill/CLionProjects/Raylib Game/Scenes/SCENE_WorldViewer.h
 ../Engine/Engine.h

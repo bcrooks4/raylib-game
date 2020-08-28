@@ -13,8 +13,16 @@ SCENE_METHOD SCENE_WORLD_VIEWER_Render();
 SCENE_METHOD SCENE_WORLD_VIEWER_Close();
 typedef struct {
     Texture texture;
+    int x;
+    int y;
+} GameCell;
+
+typedef struct {
+    Texture texture;
     Camera2D camera;
-    int* regions;
+    Vector2 mapSize;
+    GameCell *cells;
+    int cellCount;
 } SCENE_WORLD_VIEWER_Data;
 
 #endif //RAYLIB_GAME_SCENE_WORLDVIEWER_H

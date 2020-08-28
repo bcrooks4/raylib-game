@@ -19,7 +19,7 @@ SCENE_METHOD SCENE_WORLD_CREATION_START() {
             0,0,0,0,0,0,0,0,
     };
 
-    int scale = 8;
+    int scale = 16;
     int width = 8;
     int height = 8;
     int mapWidth = width * scale;
@@ -78,16 +78,23 @@ SCENE_METHOD SCENE_WORLD_CREATION_START() {
     FILE *file;
     fopen_s(&file, "MAP DATA", "w");
 
-    fprintf(file, "width: %d, height: %d, scale: %d\n", mapWidth, mapHeight, scale);
+    fprintf(file, "width:%d,height:%d,\n", mapWidth, mapHeight);
+
 
     for (int i = 0; i < width * height; i++) {
-        fprintf_s(file, "%d, %d, %d, %d, ", (int)regions[i].x, (int)regions[i].y, (int)regions[i].width, (int)regions[i].height);
+        fprintf_s(file, "%d,%d,%d,%d,", (int)regions[i].x, (int)regions[i].y, (int)regions[i].width, (int)regions[i].height);
+        fputc('\n', file);
         for (int y = (int)regions[i].y; y <= (int)regions[i].height; y++) {
             for (int x = (int)regions[i].x; x <= (int)regions[i].width; x++) {
-                fprintf_s(file, "%d, ", map[y * mapWidth + x] ? 1 : 0);
+                fprintf_s(file, "%d,", map[y * mapWidth + x] ? 1 : 0);
             }
+            fputc('\n', file);
+
         }
         fputc('\n', file);
+        fputc('-', file);
+        fputc('\n', file);
+
     }
 
     if (cells)
